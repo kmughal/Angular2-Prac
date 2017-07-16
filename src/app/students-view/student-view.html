@@ -1,0 +1,46 @@
+<br/>
+<br/>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="colors" value="red" (click)='color="red"'> Red
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="colors" value="pink" (click)='color="green"'> Green
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="colors" value="green" (click)='color="blue"'> Blue
+  </label>
+</div>
+<span myhighlight [highlightColor]='color'>This is highlighted </span>
+<div *ngIf="list.length > 0">
+  <h4>Total Records
+    <span class="badge badge-pill badge-primary"> {{list.length}}</span>
+  </h4>
+  <ul>
+    <li *ngFor="let student of list">
+      <input type="button" class="btn btn-primary" value="Edit" /> {{student.getFullName()}}
+      <br/> {{student.getGender()}}
+      <br/> {{student.getAge()}}
+      <br/> {{student.getAddress()}}
+    </li>
+  </ul>
+</div>
+
+<div class="alert alert-info" role="alert" *ngIf="list.length === 0 ">
+  Students collections is empty!
+</div>
+
+<div>
+  <p>
+    This is an example of simple event in Angular 2.0, type in the text box and press enter to see the text.
+  </p>
+  <div class="form-group">
+    <input type="text" class="form-control" #box (keyup.enter)="0" />
+    <p class="alert alert-info">{{box.value}} </p>
+  </div>
+</div>
